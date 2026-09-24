@@ -1,17 +1,19 @@
 const salida7 = document.getElementById('salida7');
 
-let texto7 = "Diagonal con N=20\n\n";
-let n_7 = 20;
+let resultado7 = "Diagonal con N=20\n\n";
+const r = 20;
 
-for (let i = 0; i < n_7; i++) {
+let contador7 = 0;
+while (contador7 < r) {
     let linea = "";
-    // Agregar espacios según la posición
-    for (let j = 0; j < i; j++) {
-        linea += " ";
+    let j = 0;
+    while (j < contador7) {
+        linea = linea + " ";
+        j = j + 1;
     }
-    // Agregar el asterisco
-    linea += "*";
-    texto7 += linea + "\n";
+    linea = linea + "*";
+    resultado7 = resultado7 + linea + "\n";
+    contador7 = contador7 + 1;
 }
 
-salida7.textContent = texto7;
+salida7.textContent = resultado7;

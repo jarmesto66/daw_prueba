@@ -1,17 +1,16 @@
 const salida5 = document.getElementById('salida5');
 
 let suma = 0;
-let multiplos = [];
+let i = 1;
 
-for (let i = 1; i <= 50; i++) {
-    if (i % 4 === 0) {
-        multiplos.push(i);
+while (i <= 50) {
+    if (i % 4 == 0) {
         suma += i;
     }
+    i += 1;
 }
 
-let texto5 = "Números múltiplos de 4 del 1 al 50:\n";
-texto5 += multiplos.join(", ") + "\n\n";
-texto5 += "Total acumulado: " + suma;
+let resultado5 = "Suma de multiplos de 4 del 1 al 50:\n";
+resultado5 = resultado5 + "Total: " + suma;
 
-salida5.textContent = texto5;
+salida5.textContent = resultado5;

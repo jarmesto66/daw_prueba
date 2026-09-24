@@ -1,14 +1,14 @@
 const salida10 = document.getElementById('salida10');
 
-let texto10 = "Triángulo inferior con N=20\n\n";
-const n_10 = 20;
+let resultado10 = "Triangulo inferior con N=20\n\n";
+const s = 20;
 
-for (let i = 1; i <= n_10; i++) {
+for (let contador10 = s; contador10 >= 1; contador10--) {
     let linea = "";
-    for (let j = 0; j < i; j++) {
-        linea += "* ";
+    for (let contador11 = 0; contador11 < contador10; contador11++) {
+        linea = linea + "* ";
     }
-    texto10 += linea + "\n";
+    resultado10 = resultado10 + linea + "\n";
 }
 
-salida10.textContent = texto10;
+salida10.textContent = resultado10;

@@ -1,17 +1,16 @@
 const salida8 = document.getElementById('salida8');
 
-let texto8 = "Diagonal inversa con N=20\n\n";
-let n_8 = 20;
+let resultado8 = "Diagonal inversa con N=20\n\n";
+const n = 20;
 
-for (let i = 0; i < n_8; i++) {
+for (let i = 0; i < n; i++) {
     let linea = "";
-    // Agregar espacios decrecientes
-    for (let j = 0; j < (n_8 - 1 - i); j++) {
-        linea += " ";
+    let espacios = n - 1 - i;
+    for (let j = 0; j < espacios; j++) {
+        linea = linea + " ";
     }
-    // Agregar el asterisco
-    linea += "*";
-    texto8 += linea + "\n";
+    linea = linea + "*";
+    resultado8 = resultado8 + linea + "\n";
 }
 
-salida8.textContent = texto8;
+salida8.textContent = resultado8;
