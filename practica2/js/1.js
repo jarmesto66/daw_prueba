@@ -1,0 +1,1 @@
+    alert("¡Bienvenido a la Práctica 2!"); /* Generamos la alerta con el mensaje de bienvenida */
