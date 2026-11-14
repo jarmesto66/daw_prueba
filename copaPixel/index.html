@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Copa Pixel 2026</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header class="cabecera">
+    <h1 id="titulo">Copa Pixel</h1>
+    <span class="juego">Street Fighter VI</span>
+  </header>
+
+  <main class="contenedor">
+    <section class="panel" aria-label="Control del torneo">
+      <div>
+        <p class="panel-etiqueta">Tiempo restante de votación</p>
+        <p id="cronometro" class="cronometro" role="timer">00:00</p>
+        <p id="mensaje" class="mensaje" aria-live="polite"></p>
+      </div>
+      <div class="acciones">
+        <button id="btn-iniciar" type="button" class="btn-panel">Iniciar torneo</button>
+        <button id="btn-resetear" type="button" class="btn-panel btn-secundario">Resetear torneo</button>
+      </div>
+    </section>
+
+    <section id="participantes" class="rejilla" aria-label="Participantes del torneo"></section>
+  </main>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f3f4f8;
+  color: #1f2937;
+}
+
+.cabecera {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: #1f2233;
+  color: #fff;
+}
+
+.cabecera h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #f7d917;
+}
+
+.juego {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.contenedor {
+  max-width: 960px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #d9dce5;
+  border-radius: 10px;
+}
+
+.tarjeta h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.pais {
+  margin: 0 0 1rem;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.puntos {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.etiqueta-puntos {
+  margin: 0 0 1rem;
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+.btn-votar {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  background: #f7d917;
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-votar:hover {
+  background: #e6c700;
+}
+
+.btn-votar:focus-visible {
+  outline: 3px solid #1f2233;
+  outline-offset: 2px;
+}
+
+/* ---------- Apartado 2: cuenta atrás ---------- */
+.panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid #d9dce5;
+  border-radius: 10px;
+}
+
+.panel-etiqueta {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.cronometro {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color:blue;
+}
+
+.mensaje {
+  margin: 0;
+  min-height: 1.4em;
+  font-weight: 700;
+  color: #b91c1c;
+}
+
+.btn-panel {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #1f2233;
+  border-radius: 6px;
+  background: #1f2233;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-panel:disabled,
+.btn-votar:disabled {
+  background: #d1d5db;
+  border-color: #d1d5db;
+  color:#b91c1c;
+  cursor: not-allowed;
+}
+
+/* ---------- Apartado 3: botón de reseteo ---------- */
+.acciones {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-secundario {
+  background: #fff;
+  color: #1f2233;
+}
+
+.btn-secundario:hover {
+  background: #f3f4f8;
+}
