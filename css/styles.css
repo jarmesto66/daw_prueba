@@ -127,7 +127,7 @@ textarea:focus {
 }
 
 /* ===== 4. COMPONENTES COMUNES: CABECERA Y MENÚ (Flexbox) ===== */
-.cabecera {
+.cabecera .menu {
   display: flex;
   flex-direction: column; /* móvil: todo apilado y centrado */
   align-items: center;
@@ -142,18 +142,15 @@ textarea:focus {
   color: var(--texto-suave);
 }
 
-/*.menu ul {
-    padding: 0.5rem;
-    list-style: none;
-    font-size: var(--texto-pequeno);
-    display: inline-block;
-    justify-content: flex-start;
-    gap: 0.3rem;
-}*/
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
 
 .menu a {
   display: flex;
-  align-items: center;
+  align-items: right;
   min-height: 2.5rem;
   padding: 0.5rem 0.5rem;
   color: var(--verde-oscuro);
@@ -165,6 +162,10 @@ textarea:focus {
     background-color var(--transicion),
     color var(--transicion),
     transform var(--transicion);
+}
+
+.menu li {
+  list-style: none;
 }
 
 .menu a:hover {
@@ -259,7 +260,7 @@ button[type='reset']:hover {
     font-size: 2rem;
   }
 
-  .cabecera {
+  a .menu {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -270,4 +271,25 @@ button[type='reset']:hover {
 
 /* Escritorio (≥ 1024px): más aire y tarjetas más cómodas */
 @media (min-width: 64rem) {
+  .cabecera a {
+  display: flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.5rem;
+  color: var(--verde-oscuro);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--verde-oscuro);
+  border-radius: 999px;
+  transition:
+    background-color var(--transicion),
+    color var(--transicion),
+    transform var(--transicion);
+}
+.menu {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+}
 }
