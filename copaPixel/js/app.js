@@ -11,7 +11,7 @@ const datosIniciales = {
 
 const PUNTOS_POR_VOTO = 50;
 
-const CLAVE_STORAGE = "copaPixel.participantes";
+const CLAVE_ALMACENA = "copaPixel.participantes";
 
 // Copia de los datos originales. Se copia cada objeto (no solo el array),
 // porque si no compartirían referencia con datosIniciales y el reseteo no funcionaría.
@@ -24,7 +24,7 @@ function copiarIniciales() {
 // localStorage solo guarda texto: JSON.stringify al guardar, JSON.parse al leer.
 function guardarParticipantes() {
   try {
-    localStorage.setItem(CLAVE_STORAGE, JSON.stringify(participantes));
+    localStorage.setItem(CLAVE_ALMACENA, JSON.stringify(participantes));
   } catch (error) {
     console.warn("No se pudo guardar en localStorage:", error);
   }
@@ -34,7 +34,7 @@ function guardarParticipantes() {
 // de partida, se arranca con los valores originales.
 function cargarParticipantes() {
   try {
-    const guardado = JSON.parse(localStorage.getItem(CLAVE_STORAGE)); // null si no existe
+    const guardado = JSON.parse(localStorage.getItem(CLAVE_ALMACENA)); // null si no existe
     const valido =
       Array.isArray(guardado) &&
       guardado.length === datosIniciales.participantes.length &&
@@ -169,7 +169,7 @@ function resetearTorneo() {
   tiempoRestante = datosIniciales.duracionSegundos;
 
   participantes = copiarIniciales();
-  localStorage.removeItem(CLAVE_STORAGE); // vuelve al estado "primera visita"
+  localStorage.removeItem(CLAVE_ALMACENA); // vuelve al estado "primera visita"
 
   mensaje.textContent = "";
   btnIniciar.disabled = false;

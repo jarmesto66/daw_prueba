@@ -1,0 +1,273 @@
+/* ===== 1. RESET UNIVERSAL ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  overflow-wrap: break-word;
+}
+
+/* ===== 2. VARIABLES CSS =====*/
+
+:root {
+  /* Colores de marca */
+  --verde-marca: #3dba7e; /* solo decorativo: bordes y acentos */
+  --verde-oscuro: #14532d; /* texto blanco encima: 9,1:1 */
+  --verde-enlace: #166534; /* sobre blanco: 7,1:1 */
+  --verde-suave: #dcefe3; /* fondo de "hover" del menú */
+  --naranja: #b45309; /* texto blanco encima: 5,0:1 */
+  --naranja-hover: #92400e; /* texto blanco encima: 7,1:1 */
+
+  /* Neutros */
+  --fondo: #f6f4ec;
+  --superficie: #ffffff;
+  --texto: #1f2a24; /* sobre fondo: 13,5:1 */
+  --texto-suave: #44524a; /* sobre fondo: 7,5:1 */
+  --borde: #c9cfc4; /* borde decorativo de tarjetas */
+  --borde-campo: #5b6b62; /* bordes de formulario (≥ 3:1, WCAG 1.4.11) */
+
+  /* Estados */
+  --foco: #1d4ed8; /* sobre blanco: 6,7:1 */
+  --foco-oscuro: #fde047; /* foco sobre fondos oscuros: 6,9:1 */
+  --error: #b91c1c; /* sobre blanco: 6,5:1 */
+  --error-fondo: #fef2f2;
+
+  /* Tipografía (unidades relativas: rem) */
+  --fuente: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --texto-base: 1rem;
+  --texto-pequeno: 0.875rem;
+
+  /* Espaciado, formas y movimiento */
+  --espacio: 1rem;
+  --espacio-grande: 2rem;
+  --radio: 0.75rem;
+  --sombra: 0 1px 3px rgba(20, 40, 30, 0.12);
+  --sombra-alta: 0 8px 20px rgba(20, 40, 30, 0.18);
+  --transicion: 0.2s ease;
+}
+
+/* ===== 3. BASE (body, tipografía, enlaces) ===== */
+body {
+  font-family: var(--fuente);
+  font-size: var(--texto-base);
+  line-height: 1.5;
+  color: var(--texto);
+  background-color: var(--fondo);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  color: var(--verde-oscuro);
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+h3 {
+  font-size: 1.375rem;
+  margin-bottom: 0.5rem;
+}
+h4 {
+  font-size: 1.125rem;
+}
+
+/* Los enlaces siempre van subrayados: no dependen solo del color */
+a {
+  color: var(--verde-enlace);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition:
+    color var(--transicion),
+    text-decoration-thickness var(--transicion);
+}
+
+a:hover {
+  color: var(--naranja-hover);
+  text-decoration-thickness: 0.2em;
+}
+
+/* Foco visible para teclado: contorno grueso, no solo cambio de color */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 3px solid var(--foco);
+  outline-offset: 3px;
+}
+
+/* ===== 4. COMPONENTES COMUNES: CABECERA Y MENÚ (Flexbox) ===== */
+.cabecera {
+  display: flex;
+  flex-direction: column; /* móvil: todo apilado y centrado */
+  align-items: center;
+  gap: var(--espacio);
+  padding: var(--espacio);
+  text-align: center;
+  background-color: var(--superficie);
+  border-bottom: 0.3125rem solid var(--verde-marca);
+}
+
+.marca p {
+  color: var(--texto-suave);
+}
+
+/*.menu ul {
+    padding: 0.5rem;
+    list-style: none;
+    font-size: var(--texto-pequeno);
+    display: inline-block;
+    justify-content: flex-start;
+    gap: 0.3rem;
+}*/
+
+.menu a {
+  display: flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.5rem;
+  color: var(--verde-oscuro);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--verde-oscuro);
+  border-radius: 999px;
+  transition:
+    background-color var(--transicion),
+    color var(--transicion),
+    transform var(--transicion);
+}
+
+.menu a:hover {
+  color: var(--verde-oscuro);
+  background-color: var(--verde-suave);
+  transform: translateY(-2px);
+}
+
+/* ===== 5. CONTENIDO PRINCIPAL ===== */
+main {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: var(--espacio-grande) var(--espacio);
+}
+
+main > section {
+  margin-top: var(--espacio-grande);
+}
+
+/* Listas: el reset elimina su sangría, así que se recupera aquí */
+main ul,
+main ol {
+  padding-left: 1.5rem;
+}
+
+main > section + p {
+  margin-top: var(--espacio-grande);
+}
+
+main li ul {
+  margin-top: 0.25rem;
+}
+
+main li + li {
+  margin-top: 0.25rem;
+}
+
+figcaption {
+  font-size: var(--texto-pequeno);
+  color: var(--texto-suave);
+}
+
+/* ===== 10. BOTONES (Flexbox) ===== */
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+button {
+  min-height: 2.75rem;
+  padding: 0.5rem 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: var(--naranja);
+  border: 2px solid var(--naranja);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color var(--transicion),
+    border-color var(--transicion),
+    transform var(--transicion);
+}
+
+button:hover {
+  background-color: var(--naranja-hover);
+  border-color: var(--naranja-hover);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button[type='reset'] {
+  color: var(--naranja-hover);
+  background-color: var(--superficie);
+}
+
+button[type='reset']:hover {
+  color: var(--verde-oscuro);
+}
+
+/* ===== 11. MEDIA QUERIES (Móvil primero) ===== */
+
+/* Tablet (≥ 768px): cabecera y pie en fila, tipografía algo mayor */
+@media (min-width: 48rem) {
+  h1 {
+    font-size: 1.875rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+
+  .cabecera {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: var(--espacio) var(--espacio-grande);
+    text-align: left;
+  }
+}
+
+/* Escritorio (≥ 1024px): más aire y tarjetas más cómodas */
+@media (min-width: 64rem) {
+}
