@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PixelStore</title>
+  <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+  <header class="cabecera">
+    <h1>PixelStore</h1>
+  </header>
+
+  <main class="contenido">
+    <!-- APARTADO 1 · Formulario -->
+    <section class="panel" aria-labelledby="titulo-pedido">
+      <h2 id="titulo-pedido">Tu pedido</h2>
+      <form id="form-compra" novalidate>
+        <label>Producto
+          <select id="producto"></select>
+        </label>
+        <label>Cantidad
+          <input type="number" id="cantidad" min="1" step="1" value="1">
+        </label>
+        <label>Dirección de envío
+          <input type="text" id="direccion" placeholder="Ej: C/ Mayor 12, Gandia">
+        </label>
+        <button type="submit" id="btn-comprar">Realizar compra</button>
+      </form>
+    </section>
+
+    <!-- APARTADO 2 · Estado del pedido -->
+    <section class="panel" aria-labelledby="titulo-estado">
+      <h2 id="titulo-estado">Estado del pedido</h2>
+      <ol class="pasos">
+        <li class="paso pendiente" data-paso="stock"><span class="num">1</span><span class="nombre">Comprobar stock</span><span class="estado">Pendiente</span></li>
+        <li class="paso pendiente" data-paso="envio"><span class="num">1</span><span class="nombre">Calcular gastos de envío</span><span class="estado">Pendiente</span></li>
+        <li class="paso pendiente" data-paso="pago"><span class="num">2</span><span class="nombre">Procesar pago</span><span class="estado">Pendiente</span></li>
+        <li class="paso pendiente" data-paso="enviado"><span class="num">3</span><span class="nombre">Enviar pedido</span><span class="estado">Pendiente</span></li>
+      </ol>
+      <p id="resultado" class="resultado" role="status"></p>
+      <button type="button" id="btn-reintentar" hidden>Reintentar envío</button>
+    </section>
+
+    <!-- APARTADO 3 · Historial -->
+    <section class="panel ancho" aria-labelledby="titulo-historial">
+      <h2 id="titulo-historial">Mis pedidos</h2>
+      <ul id="historial" class="historial"></ul>
+    </section>
+  </main>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
